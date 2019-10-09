@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html class="jetpack-lazy-images-js-enabled" slick-uniqueid="3" lang="fr-FR"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://wodric.com/xmlrpc.php">
+
+<title>Les commandes Git : De bonnes bases (1/3)</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Cette article présente un certains nombres de commandes Git usuelles. Ces commandes permettent d'avoir un bon aperçu des fonctionnalités basiques de Git.">
+<link rel="canonical" href="https://wodric.com/commandes-git-1/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Les commandes Git : De bonnes bases (1/3)">
+<meta property="og:description" content="Cette article présente un certains nombres de commandes Git usuelles. Ces commandes permettent d'avoir un bon aperçu des fonctionnalités basiques de Git.">
+<meta property="og:url" content="https://wodric.com/commandes-git-1/">
+<meta property="og:site_name" content="Wodric">
+<meta property="article:tag" content="developpement">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="Planet-Libre">
+<meta property="article:section" content="Git">
+<meta property="article:published_time" content="2016-06-20T15:56:32+00:00">
+<meta property="article:modified_time" content="2016-12-03T20:54:27+00:00">
+<meta property="og:updated_time" content="2016-12-03T20:54:27+00:00">
+<meta property="og:image" content="https://i0.wp.com/wodric.com/wp-content/uploads/2016/04/git.png?fit=600%2C600&amp;ssl=1">
+<meta property="og:image:secure_url" content="https://i0.wp.com/wodric.com/wp-content/uploads/2016/04/git.png?fit=600%2C600&amp;ssl=1">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Cette article présente un certains nombres de commandes Git usuelles. Ces commandes permettent d'avoir un bon aperçu des fonctionnalités basiques de Git.">
+<meta name="twitter:title" content="Les commandes Git : De bonnes bases (1/3)">
+<meta name="twitter:site" content="@_Wodric_">
+<meta name="twitter:image" content="http://wodric.com/wp-content/uploads/2016/04/git.png">
+<meta name="twitter:creator" content="@_Wodric_">
+<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script type="text/javascript" async="" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/external.js" style="color: rgba(3, 7, 17, 0.5);"></script><script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://wodric.com/#website","url":"https://wodric.com/","name":"Wodric","potentialAction":{"@type":"SearchAction","target":"https://wodric.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://wodric.com/commandes-git-1/#primaryimage","url":"https://i0.wp.com/wodric.com/wp-content/uploads/2016/04/git.png?fit=600%2C600&ssl=1","width":600,"height":600},{"@type":"WebPage","@id":"https://wodric.com/commandes-git-1/#webpage","url":"https://wodric.com/commandes-git-1/","inLanguage":"fr-FR","name":"Les commandes Git : De bonnes bases (1/3)","isPartOf":{"@id":"https://wodric.com/#website"},"primaryImageOfPage":{"@id":"https://wodric.com/commandes-git-1/#primaryimage"},"datePublished":"2016-06-20T15:56:32+00:00","dateModified":"2016-12-03T20:54:27+00:00","author":{"@id":"https://wodric.com/#/schema/person/3cc7bf93518aff91e982a844c532a0f2"},"description":"Cette article pr\u00e9sente un certains nombres de commandes Git usuelles. Ces commandes permettent d'avoir un bon aper\u00e7u des fonctionnalit\u00e9s basiques de Git."},{"@type":["Person"],"@id":"https://wodric.com/#/schema/person/3cc7bf93518aff91e982a844c532a0f2","name":"Wodric","image":{"@type":"ImageObject","@id":"https://wodric.com/#authorlogo","url":"https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=96&d=wavatar&r=g","caption":"Wodric"},"sameAs":["https://twitter.com/@_Wodric_"]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://secure.rating-widget.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Wodric » Flux" href="https://wodric.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Wodric » Flux des commentaires" href="https://wodric.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Wodric » Les commandes Git : De bonnes bases (1/3) Flux des commentaires" href="https://wodric.com/commandes-git-1/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/wodric.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="megamenu-wp-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/style_003.css" type="text/css" media="all">
+<style id="megamenu-wp-inline-css" type="text/css">
+.megamenu-wp-desktop #megamenu-wp-page .megamenu-wp .mega-item .mega-content li.mega-content-li { margin-top: 0px; }
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/style_004.css" type="text/css" media="all">
+<link rel="stylesheet" id="rw-site-rating-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/site-rating.css" type="text/css" media="all">
+<link rel="stylesheet" id="parent-style-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="codilight-lite-google-fonts-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="codilight-lite-fontawesome-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="codilight-lite-style-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/style_005.css" type="text/css" media="all">
+<link rel="stylesheet" id="rw_toprated-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/toprated.css" type="text/css" media="all">
+<link rel="stylesheet" id="rw_recommendations-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/recommendations.css" type="text/css" media="all">
+<link rel="stylesheet" id="enlighter-local-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/EnlighterJS.css" type="text/css" media="all">
+<link rel="stylesheet" id="hm_custom_css-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/custom.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/jquery_002.js"></script>
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/related-posts.js"></script>
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/mootools-core-yc.js"></script>
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/EnlighterJS.js"></script>
+<script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/custom.js"></script>
+<link rel="https://api.w.org/" href="https://wodric.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wodric.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://wodric.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.2.3">
+<link rel="shortlink" href="https://wp.me/p6XUDg-51">
+<link rel="alternate" type="application/json+oembed" href="https://wodric.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwodric.com%2Fcommandes-git-1%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://wodric.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwodric.com%2Fcommandes-git-1%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+
+<style type="text/css"></style>
+
+<style type="text/css">
+.synved-social-resolution-single {
+display: inline-block;
+}
+.synved-social-resolution-normal {
+display: inline-block;
+}
+.synved-social-resolution-hidef {
+display: none;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 2dppx),
+only screen and (min-resolution: 192dpi) {
+	.synved-social-resolution-normal {
+	display: none;
+	}
+	.synved-social-resolution-hidef {
+	display: inline-block;
+	}
+}
+</style>
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		<script type="text/javascript">/* <![CDATA[ */EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"java","theme":"enlighter","indent":4,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;/* ]]> */</script><link rel="icon" href="https://i0.wp.com/wodric.com/wp-content/uploads/2015/11/cropped-cropped-programming-java-e14479375782582.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://i0.wp.com/wodric.com/wp-content/uploads/2015/11/cropped-cropped-programming-java-e14479375782582.jpg?fit=192%2C192&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://i0.wp.com/wodric.com/wp-content/uploads/2015/11/cropped-cropped-programming-java-e14479375782582.jpg?fit=180%2C180&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://i0.wp.com/wodric.com/wp-content/uploads/2015/11/cropped-cropped-programming-java-e14479375782582.jpg?fit=270%2C270&amp;ssl=1">
+<style type="text/css"></style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/services.css"><link type="text/css" rel="stylesheet" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/style.css" media="screen"><link type="text/css" rel="stylesheet" href="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/theme.css" media="screen"><style type="text/css" id="rw_class_blog-post_custom_style">.rw-class-blog-post.rw-ui-star.rw-ui-container.rw-style-custom .rw-ui-stars li { background-image: url(''); }
+.rw-class-blog-post.rw-rtl.rw-ui-star.rw-ui-container.rw-style-custom .rw-ui-stars li { background-image: url(''); }
+</style></head>
+
+<body class="post-template-default single single-post postid-311 single-format-standard megamenu-wp-desktop">
+<div id="megamenu-wp-page"><div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Aller au contenu</a>
+		<div id="topbar" class="site-topbar">
+		<div class="container">
+			<div class="topbar-left pull-left">
+				<nav id="site-navigation" class="main-navigation">
+					<span class="home-menu"> <a href="https://wodric.com/" rel="home"><i class="fa fa-home"></i></a></span>
+					<span class="nav-toggle"><a href="#0" id="nav-toggle">Menu<span></span></a></span>
+					<ul class="ft-menu">
+						<li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4"><a href="http://wodric.com/">Accueil</a></li>
+<li id="menu-item-812" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-812"><a href="https://wodric.com/cv/">CV</a></li>
+<li id="menu-item-15" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15"><a href="https://wodric.com/projets/">Projets</a></li>
+<li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="https://github.com/Wodric">Github</a></li>
+					</ul>
+				</nav><!-- #site-navigation -->
+			</div>
+			<div class="topbar-right pull-right">
+				<ul class="topbar-elements">
+										<li class="topbar-search">
+						<a href="javascript:void(0)"><i class="search-icon fa fa-search"></i><span>Rechercher</span></a>
+						<div class="dropdown-content dropdown-search">
+							<form role="search" method="get" class="search-form" action="https://wodric.com/">
+				<label>
+					<span class="screen-reader-text">Rechercher&nbsp;:</span>
+					<input class="search-field" placeholder="Recherche…" name="s" type="search">
+				</label>
+				<input class="search-submit" value="Rechercher" type="submit">
+			</form>						</div>
+					</li>
+										<div class="clear"></div>
+				</ul>
+			</div>
+		</div>
+	</div><!--#topbar-->
+	
+	<div class="mobile-navigation">
+				<ul>
+			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4"><a href="http://wodric.com/">Accueil</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-812"><a href="https://wodric.com/cv/">CV</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15"><a href="https://wodric.com/projets/">Projets</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="https://github.com/Wodric">Github</a></li>
+		</ul>
+			</div>
+
+		<header id="masthead" class="site-header">
+		<div class="container">
+			<div class="site-branding">
+				<p class="site-title"><a href="https://wodric.com/" rel="home">Wodric</a></p><p class="site-description">Blog développeur, veille et astuces de développement</p>			</div><!-- .site-branding -->
+		</div>
+	</header><!-- #masthead -->
+	
+	<div id="content" class="site-content container right-sidebar">
+		<div class="content-inside">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-311" class="post-311 post type-post status-publish format-standard has-post-thumbnail hentry category-article-dev category-git tag-developpement tag-git tag-planet-libre">
+	<header class="entry-header entry-header-single">
+		<h1 class="entry-title">Les commandes Git : De bonnes bases (1/3)</h1>		<div class="entry-meta entry-meta-1"><span class="author vcard"><a class="url fn n" href="https://wodric.com/author/wodric/">Wodric</a></span><span class="entry-date"><time class="entry-date published" datetime="2016-06-20T17:56:32+01:00">20 juin 2016</time></span><span class="comments-link"><i class="fa fa-comments-o"></i><a href="https://wodric.com/commandes-git-1/#comments">4</a></span></div>	</header><!-- .entry-header -->
+	
+	<div class="entry-content">
+		<p>Maintenant, nous avons vu comment <a href="http://wodric.com/migration-svn-git/">migrer votre projet sur git</a> et adapter votre <a href="http://wodric.com/git-workflow-de-dev/">workflow de développement pour git</a>.
+ L’objectif est de progresser dans l’utilisation des commandes Git. Pour
+ cela, je vais proposer une série de 3 articles (en un seul c’était 
+totalement indigeste).</p>
+<p>Dans cette série d’articles, j’essayerai de suivre le schéma suivant pour chaque description de commande ou use case :</p>
+<ul>
+<li>Un exemple de contexte d’utilisation</li>
+<li>La ou les lignes de commandes à exécuter</li>
+<li>Si cela me semble nécessaire, quelques explications</li>
+</ul>
+<p>Pour commencer,&nbsp; si j’avais un conseil à donner c’est d’utiliser <strong>uniquement</strong> la ligne de commande. Cela vous permettra de progresser rapidement, après quelques semaines vous ne la quitterez plus.</p>
+<p>Vous pouvez retrouver les articles suivants ici :</p>
+<ul>
+<li><a href="http://wodric.com/commandes-git-2/" target="_blank">Les commandes branches, tag, merge, rebase</a></li>
+<li><a href="http://wodric.com/commandes-git-3/" target="_blank">Se faciliter la vie avec Git (bisect, configurations..)</a></li>
+</ul>
+<h2>En savoir plus sur une commande</h2>
+<p>Je vais présenter uniquement des exemples basiques des commandes 
+utilisées, mais ces dernières sont très riches, et possède des 
+fonctionnalités que je n’ai moi même pas encore exploré.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git help nom_commande
+git nom_commande --help</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git help nom_commande</span></li><li class=" even"><span class="">git nom_commande --help</span></li></ol><pre style="display: none;">git help nom_commande
+git nom_commande --help</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Je recommande la <a href="https://git-scm.com/book/fr/v1" target="_blank">documentation de git en ligne</a>, très bien faites et disponible en français.</p>
+<h2>Récupérer un dépôt via le système</h2>
+<p>Quand on commence avec Git, la première étape est généralement de 
+récupérer un projet depuis un dépôt distant (github, bitbucket, le 
+serveur git de votre entreprise …). Pour cela deux possibilités:</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;"># mettre le contenu du dépôt dans le répertoire courant, ce dernier doit être vide.
+git clone &lt;URL_DEPOT&gt; .
+# ou mettre le dépôt dans un répertoire créé automatiquement au nom du projet
+git clone &lt;URL_DEPOT&gt;
+</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="co1"># mettre le contenu du dépôt dans le répertoire courant, ce dernier doit être vide.</span><span class=""></span></li><li class=" even"><span class="">git clone &lt;URL_DEPOT&gt; .</span><span class="co1"></span></li><li class=" odd"><span class="co1"># ou mettre le dépôt dans un répertoire créé automatiquement au nom du projet</span><span class=""></span></li><li class=" even"><span class="">git clone &lt;URL_DEPOT&gt;</span></li></ol><pre style="display: none;"># mettre le contenu du dépôt dans le répertoire courant, ce dernier doit être vide.
+git clone &lt;URL_DEPOT&gt; .
+# ou mettre le dépôt dans un répertoire créé automatiquement au nom du projet
+git clone &lt;URL_DEPOT&gt;</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Le point dans la première commande peut être remplacé par un chemin de votre système de fichier.</p>
+<h2>Mettre à jour le dépôt local</h2>
+<p>S’il y a eu des modifications partagées par d’autres développeurs à récupérer il faut utiliser la commande «&nbsp;pull&nbsp;».</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git pull</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git pull</span></li></ol><pre style="display: none;">git pull</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Le pull est l’équivalent de «&nbsp;git fetch&nbsp;», qui rapatrie les
+ commits depuis le dépôt central, et «&nbsp;git merge&nbsp;» qui 
+récupère et fusionne les modifications des fichiers. Si vous avez des 
+modifications en cours, il est possible que des conflits apparaissent.</p>
+<h2>Vérifier l’état de votre dépôt en local</h2>
+<p>A n’importe quel moment, il est possible de vérifier l’état de git en
+ local. La commande «&nbsp;status&nbsp;» permet de savoir où l’on en 
+est, quels sont les fichiers ajoutés, modifiés,&nbsp; indexés ou en 
+conflit etc …</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git status</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git status</span></li></ol><pre style="display: none;">git status</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Voici un exemple de git status&nbsp; :</p>
+<p><a href="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png"><img data-attachment-id="430" data-permalink="https://wodric.com/commandes-git-1/git-status/" data-orig-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=901%2C361&amp;ssl=1" data-orig-size="901,361" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Résultat d&amp;rsquo;un git status" data-image-description="" data-medium-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=300%2C120&amp;ssl=1" data-large-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=700%2C280&amp;ssl=1" class="aligncenter size-full wp-image-430 jetpack-lazy-image jetpack-lazy-image--handled" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/git-status.png" alt="Résultat d'un git status" data-recalc-dims="1" srcset="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?w=901&amp;ssl=1 901w, https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?resize=300%2C120&amp;ssl=1 300w, https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?resize=768%2C308&amp;ssl=1 768w" data-lazy-loaded="1" sizes="(max-width: 700px) 100vw, 700px" width="700" height="280"><noscript><img
+ data-attachment-id="430" 
+data-permalink="https://wodric.com/commandes-git-1/git-status/" 
+data-orig-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=901%2C361&amp;ssl=1"
+ data-orig-size="901,361" data-comments-opened="1" 
+data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+ data-image-title="Résultat d&amp;rsquo;un git status" 
+data-image-description="" 
+data-medium-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=300%2C120&amp;ssl=1"
+ 
+data-large-file="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?fit=700%2C280&amp;ssl=1"
+ class="aligncenter size-full wp-image-430" 
+src="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?resize=700%2C280"
+ alt="Résultat d'un git status" width="700" height="280" 
+srcset="https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?w=901&amp;ssl=1
+ 901w, 
+https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?resize=300%2C120&amp;ssl=1
+ 300w, 
+https://i2.wp.com/wodric.com/wp-content/uploads/2016/06/git-status.png?resize=768%2C308&amp;ssl=1
+ 768w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></noscript></a></p>
+<p>On obtient les informations suivantes :</p>
+<ul>
+<li>Le dépôt local est actuellement sur la branche «&nbsp;develop&nbsp;» et a un commit d’avance sur la branche du dépôt distant</li>
+<li>Le fichier NumberScientificNotation.java est un nouveau fichier indéxé</li>
+<li>Les fichiers BlindConstants.java et BlindStruncture.java sont deux 
+fichiers modifiés non ajouté à l’index dans leur nouvelle version</li>
+<li>Les fichiers .tern-project et NumberScientificNotationTest.java sont des nouveaux fichiers pas encore indéxé</li>
+</ul>
+<h2>Placer de nouveaux fichiers à l’index ou ré-indexer un fichier modifié</h2>
+<p>La commande «&nbsp;add&nbsp;» permet d’ajouter des fichiers dans 
+l’index. Que ce soit des fichiers nouvellement ajoutés au projet ou des 
+fichiers modifiés par le développeur. Dans les deux cas, la même 
+commande est utilisée.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git add FileName
+# la commande add de git accepte les patterns, quelques exemples
+git add .
+git add *
+git add src/*</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git add FileName</span><span class="co1"></span></li><li class=" even"><span class="co1"># la commande add de git accepte les patterns, quelques exemples</span><span class=""></span></li><li class=" odd"><span class="">git add .</span></li><li class=" even"><span class="">git add *</span></li><li class=" odd"><span class="">git add src/*</span></li></ol><pre style="display: none;">git add FileName
+# la commande add de git accepte les patterns, quelques exemples
+git add .
+git add *
+git add src/*</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Cette commande est indispensable au processus de versionning. Les 
+fichiers doivent être ajoutés à l’index pour être ensuite versionné.</p>
+<h2>Enlever un fichier de l’index</h2>
+<p>En utilisant des patterns pour ajouter des fichiers dans l’index, il 
+est possible d’y ajouter des fichiers par erreur, on peut les retirer 
+grâce a la commande «&nbsp;reset&nbsp;».</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git reset chemin/du/fichier</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git reset chemin/du/fichier</span></li></ol><pre style="display: none;">git reset chemin/du/fichier</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<h2>Supprimer, déplacer ou renommer un fichier dans l’index</h2>
+<p>Si on souhaite supprimer un fichier présent dans l’index 
+(nouvellement ajouté ou déjà commité), il faut utiliser la commande 
+«&nbsp;git rm&nbsp;».</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;"># pour un fichier
+git rm filename
+# pour un dossier
+git rm -r folderName</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="co1"># pour un fichier</span><span class=""></span></li><li class=" even"><span class="">git rm filename</span><span class="co1"></span></li><li class=" odd"><span class="co1"># pour un dossier</span><span class=""></span></li><li class=" even"><span class="">git rm -r folderName</span></li></ol><pre style="display: none;"># pour un fichier
+git rm filename
+# pour un dossier
+git rm -r folderName</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Cette commande indique à Git la suppression du fichier et le supprime du système.</p>
+<p>Pour renommer ou déplacer un fichier indexé il faut utiliser la commande «&nbsp;git mv&nbsp;»:</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git mv ancien/chemin nouveau/chemin
+git mv ancien_nom nouveau_nom
+</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git mv ancien/chemin nouveau/chemin</span></li><li class=" even"><span class="">git mv ancien_nom nouveau_nom</span></li></ol><pre style="display: none;">git mv ancien/chemin nouveau/chemin
+git mv ancien_nom nouveau_nom</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<h2>Annuler les modifications d’un fichier</h2>
+<p>Si un fichier a été modifié à tord, il est possible de récupérer sa dernière version commité :</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git checkout -- votreFichier
+# cette commande cette les pattern
+git checkout -- src/java/test/*</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git checkout -- votreFichier</span><span class="co1"></span></li><li class=" even"><span class="co1"># cette commande cette les pattern</span><span class=""></span></li><li class=" odd"><span class="">git checkout -- src/java/test/*</span></li></ol><pre style="display: none;">git checkout -- votreFichier
+# cette commande cette les pattern
+git checkout -- src/java/test/*</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<h2>Commit des modifications</h2>
+<p>Après avoir réalisé des modifications et les avoir indexés via la 
+commande «&nbsp;git add&nbsp;», il faut les commiter pour les intégrer 
+au versionning.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="null" style="display: none;">git commit -m "Le message de votre commit"</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git commit -m </span><span class="st1">"Le message de votre commit"</span></li></ol><pre style="display: none;">git commit -m "Le message de votre commit"</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>Ces changements ne sont pas partagé sur le dépôt centrale, ce 
+versionning est local. De plus, le message est très important pour 
+l’historique du projet, je conseil de le renseigner proprement en 
+décrivant ce qui a été fait et mettre le numéro des fiches traitées.</p>
+<p>En cas d’erreur sur le message ou la liste de fichier à commiter de 
+votre dernier commit, il est possible de revenir sur ce commit avec :</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="shell" style="display: none;">git commit --amend
+# si vous souhaitez modifier uniquement le message 
+git commit --amend -m "Mon nouveau message"</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="">git commit --amend</span><span class="co1"></span></li><li class=" even"><span class="co1"># si vous souhaitez modifier uniquement le message </span><span class=""></span></li><li class=" odd"><span class="">git commit --amend -m </span><span class="st0">"Mon nouveau message"</span></li></ol><pre style="display: none;">git commit --amend
+# si vous souhaitez modifier uniquement le message 
+git commit --amend -m "Mon nouveau message"</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<h2>Envoyer les commits sur le dépôt distant</h2>
+<p>Après avoir fait les modifications souhaitées, les avoir ajoutées à 
+l’index et versionnées. Pour les partager, il faut envoyer les 
+modifications sur le dépôt grâce à la commande «&nbsp;push&nbsp;».</p>
+<pre class="EnlighterJSRAW" data-enlighter-linenumbers="false" data-enlighter-language="shell" style="display: none;"># sur le master courante
+git push 
+# sur une branche spécifique
+git push origin &lt;branchName&gt;</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ul class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="co1"># sur le master courante</span><span class=""></span></li><li class=" even"><span class="">git push</span><span class="co1"> </span></li><li class=" odd"><span class="co1"># sur une branche spécifique</span><span class=""></span></li><li class=" even"><span class="">git push origin &lt;branchName&gt;</span></li></ul><pre style="display: none;"># sur le master courante
+git push 
+# sur une branche spécifique
+git push origin &lt;branchName&gt;</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<h2>En conclusion</h2>
+<p>Ce premier article a décrit un ensemble de fonctionnalités qui 
+permettent de récupérer un projet, le modifier et partager nos 
+modifications. Grâce à ces dernières, il est possible de travailler seul
+ ou avec une très petite équipe. Cependant, les commandes expliquées ne 
+permettent pas de participer à des projets avec des équipes nombreuses 
+possédant souvent un workflow de développement plus complexe à base de 
+branches.</p>
+<p>Le second article abordera certaines commandes permettant d’intégrer 
+des workflows plus complexe. J’espère pouvoir sortir la suite très 
+rapidement. Cet article contiendra la gestion de branche, des tags et 
+quelques informations sur le merge et le rebase. Le dernier article 
+traitera de commande un peu plus poussé ( comme bisect) et de quelques 
+configurations de git.</p>
+<p>N’hésitez pas à laisser un commentaire si vous avez des questions ou si vous avez d’autres exemples intéressants.</p>
+<p><strong>Sources :</strong></p>
+<ul>
+<li>Manuel de référence : <a class="external" href="https://git-scm.com/book/fr/v1">https://git-scm.com/book/fr/v1</a></li>
+</ul>
+<br><b style="font-size: 15px">Partager l'article :</b><br><br><a class="synved-social-button synved-social-button-share synved-social-size-32 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwp.me%2Fp6XUDg-51&amp;t=Les%20commandes%20Git%20%3A%20De%20bonnes%20bases%20%281%2F3%29&amp;s=100&amp;p[url]=https%3A%2F%2Fwp.me%2Fp6XUDg-51&amp;p[images][0]=https%3A%2F%2Fi0.wp.com%2Fwodric.com%2Fwp-content%2Fuploads%2F2016%2F04%2Fgit.png%3Ffit%3D600%252C600%26ssl%3D1&amp;p[title]=Les%20commandes%20Git%20%3A%20De%20bonnes%20bases%20%281%2F3%29" style="font-size: 0px; width:32px;height:32px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="Facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share jetpack-lazy-image jetpack-lazy-image--handled" style="display: inline; width:32px;height:32px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/facebook.png" data-recalc-dims="1" data-lazy-loaded="1" width="32" height="32"><noscript><img
+ alt="Facebook" title="Share on Facebook" class="synved-share-image 
+synved-social-image synved-social-image-share" width="32" height="32" 
+style="display: inline; width:32px;height:32px; margin: 0; padding: 0; 
+border: none; box-shadow: none;" 
+src="https://i2.wp.com/wodric.com/wp-content/plugins/social-media-feather/synved-social/image/social/regular/64x64/facebook.png?resize=32%2C32&#038;ssl=1"
+ data-recalc-dims="1" /></noscript></a><a class="synved-social-button synved-social-button-share synved-social-size-32 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwp.me%2Fp6XUDg-51&amp;text=N%27h%C3%A9sitez%20pas%20%C3%A0%20jeter%20un%20oeil%20%C3%A0%20cet%20article%20%3A%20" style="font-size: 0px; width:32px;height:32px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share jetpack-lazy-image jetpack-lazy-image--handled" style="display: inline; width:32px;height:32px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/twitter_002.png" data-recalc-dims="1" data-lazy-loaded="1" width="32" height="32"><noscript><img
+ alt="twitter" title="Share on Twitter" class="synved-share-image 
+synved-social-image synved-social-image-share" width="32" height="32" 
+style="display: inline; width:32px;height:32px; margin: 0; padding: 0; 
+border: none; box-shadow: none;" 
+src="https://i2.wp.com/wodric.com/wp-content/plugins/social-media-feather/synved-social/image/social/regular/64x64/twitter.png?resize=32%2C32&#038;ssl=1"
+ data-recalc-dims="1" /></noscript></a><a class="synved-social-button synved-social-button-share synved-social-size-32 synved-social-resolution-single synved-social-provider-reddit nolightbox" data-provider="reddit" target="_blank" rel="nofollow" title="Share on Reddit" href="http://www.reddit.com/submit?url=https%3A%2F%2Fwp.me%2Fp6XUDg-51&amp;title=Les%20commandes%20Git%20%3A%20De%20bonnes%20bases%20%281%2F3%29" style="font-size: 0px; width:32px;height:32px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="reddit" title="Share on Reddit" class="synved-share-image synved-social-image synved-social-image-share jetpack-lazy-image jetpack-lazy-image--handled" style="display: inline; width:32px;height:32px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/reddit.png" data-recalc-dims="1" data-lazy-loaded="1" width="32" height="32"><noscript><img
+ alt="reddit" title="Share on Reddit" class="synved-share-image 
+synved-social-image synved-social-image-share" width="32" height="32" 
+style="display: inline; width:32px;height:32px; margin: 0; padding: 0; 
+border: none; box-shadow: none;" 
+src="https://i2.wp.com/wodric.com/wp-content/plugins/social-media-feather/synved-social/image/social/regular/64x64/reddit.png?resize=32%2C32&#038;ssl=1"
+ data-recalc-dims="1" /></noscript></a><a class="synved-social-button synved-social-button-share synved-social-size-32 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwp.me%2Fp6XUDg-51&amp;title=Les%20commandes%20Git%20%3A%20De%20bonnes%20bases%20%281%2F3%29" style="font-size: 0px; width:32px;height:32px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share jetpack-lazy-image jetpack-lazy-image--handled" style="display: inline; width:32px;height:32px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/linkedin_002.png" data-recalc-dims="1" data-lazy-loaded="1" width="32" height="32"><noscript><img
+ alt="linkedin" title="Share on Linkedin" class="synved-share-image 
+synved-social-image synved-social-image-share" width="32" height="32" 
+style="display: inline; width:32px;height:32px; margin: 0; padding: 0; 
+border: none; box-shadow: none;" 
+src="https://i0.wp.com/wodric.com/wp-content/plugins/social-media-feather/synved-social/image/social/regular/64x64/linkedin.png?resize=32%2C32&#038;ssl=1"
+ data-recalc-dims="1" /></noscript></a><a class="synved-social-button synved-social-button-share synved-social-size-32 synved-social-resolution-single synved-social-provider-mail nolightbox" data-provider="mail" rel="nofollow" title="Share by email" href="mailto:?subject=Les%20commandes%20Git%20%3A%20De%20bonnes%20bases%20%281%2F3%29&amp;body=N%27h%C3%A9sitez%20pas%20%C3%A0%20jeter%20un%20oeil%20%C3%A0%20cet%20article%20%3A%20:%20https%3A%2F%2Fwp.me%2Fp6XUDg-51" style="font-size: 0px; width:32px;height:32px;margin:0;margin-bottom:5px;"><img alt="mail" title="Share by email" class="synved-share-image synved-social-image synved-social-image-share jetpack-lazy-image jetpack-lazy-image--handled" style="display: inline; width:32px;height:32px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/mail.png" data-recalc-dims="1" data-lazy-loaded="1" width="32" height="32"><noscript><img
+ alt="mail" title="Share by email" class="synved-share-image 
+synved-social-image synved-social-image-share" width="32" height="32" 
+style="display: inline; width:32px;height:32px; margin: 0; padding: 0; 
+border: none; box-shadow: none;" 
+src="https://i2.wp.com/wodric.com/wp-content/plugins/social-media-feather/synved-social/image/social/regular/64x64/mail.png?resize=32%2C32&#038;ssl=1"
+ data-recalc-dims="1" /></noscript></a><table class="rw-rating-table rw-ltr rw-left rw-no-labels"><tbody><tr><td><nobr>&nbsp;</nobr></td><td><div class="rw-left"><div class="rw-ui-container rw-urid-3120 rw-ui-star rw-size-medium rw-dir-ltr rw-halign-right rw-valign-middle rw-style-flat_yellow rw-theme-star_flat_yellow rw-active rw-class-blog-post" data-img="https://wodric.com/wp-content/uploads/2016/04/git.png" data-urid="3120" style=""><div class="rw-action-area"><ul class="rw-ui-stars"><li class="rw-ui-star-0 rw-ui-star-selected"></li><li class="rw-ui-star-1 rw-ui-star-selected"></li><li class="rw-ui-star-2 rw-ui-star-selected"></li><li class="rw-ui-star-3 rw-ui-star-selected"></li><li class="rw-ui-star-4 rw-ui-star-selected"></li></ul><a class="rw-report-link" target="_blank" href="https://rating-widget.com/my-rating-report/star/flat-yellow/rating-159435573-5/" rel="nofollow"></a></div><span class="rw-ui-info-container" style="background-color: rgb(255, 255, 255);"><i aria-hidden="true" class="rw-ui-info-nub rw-ui-info-outer-nub" style="border-right-color: rgba(0, 0, 0, 0.5);"></i><i aria-hidden="true" class="rw-ui-info-nub rw-ui-info-inner-nub" style="border-right-color: rgb(255, 255, 255);"></i><span class="rw-ui-info-inner-container" style="border-color: rgba(0, 0, 0, 0.5);"><span class="rw-ui-info" style="font-size: 18px; color: rgb(0, 0, 0);">Notez l'article (1 Vote)</span></span></span></div></div></td></tr></tbody></table>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Articles similaires</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="419" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://wodric.com/commandes-git-3/" title="Les commandes Git : se faciliter la vie  (3/3)
+
+Nous poursuivons la série d'article sur Git, vous pouvez retrouver les articles précédents à ces liens : Migrer de SVN vers Git Workflow de développement Les commandes Git de bases Les commandes Git : Branche, merge, rebase Il s'agit du dernier article de la série sur les commandes Git. L'objectif…" rel="nofollow" data-origin="311" data-position="0">Les commandes Git : se faciliter la vie  (3/3)</a></span><span class="jp-relatedposts-post-date">4 juillet 2016</span><span class="jp-relatedposts-post-context">Dans "Développement"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="473" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://wodric.com/antiseche-commandes-git/" title="Antisèche Git, les commandes principales
+
+Cette antisèche Git regroupe un lot de commandes très utilisées lorsque l'on commence avec Git ou que l'on utilise Git au quotidien. L'article listera les commandes détaillées dans des précédents articles sur le sujet : Adapter son workflow de développement avec Git Les commandes de bases Git Git : Branches,…" rel="nofollow" data-origin="311" data-position="1">Antisèche Git, les commandes principales</a></span><span class="jp-relatedposts-post-date">4 juillet 2016</span><span class="jp-relatedposts-post-context">Dans "Développement"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="418" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://wodric.com/commandes-git-2/" title="Les commandes Git - branches, rebase... (2/3)
+
+Nous poursuivons la série d'article sur Git, vous pouvez retrouver les articles précédents aux liens suivants: Migrer de SVN vers Git Workflow de développement Le premier article sur les commandes de bases Ce deuxième article est l'occasion de présenter d'autres commandes Git relatives aux branches, aux tags et au processus…" rel="nofollow" data-origin="311" data-position="2">Les commandes Git - branches, rebase... (2/3)</a></span><span class="jp-relatedposts-post-date">27 juin 2016</span><span class="jp-relatedposts-post-context">Dans "Développement"</span></p></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-taxonomies"><div class="entry-categories"><span>Catégories</span><ul class="post-categories">
+	<li><a href="https://wodric.com/category/article-dev/" rel="category tag">Développement</a></li>
+	<li><a href="https://wodric.com/category/article-dev/git/" rel="category tag">Git</a></li></ul></div><div class="entry-tags"><span>Étiquettes</span><ul class="post-tags"><li><a href="https://wodric.com/tag/developpement/" rel="tag">developpement</a></li>
+<li><a href="https://wodric.com/tag/git/" rel="tag">git</a></li>
+<li><a href="https://wodric.com/tag/planet-libre/" rel="tag">Planet-Libre</a></li></ul></div></div>
+						<div class="post-navigation row">
+			<div class="col-md-6">
+								<span>Article précédent</span>
+				<h2 class="h5"><a href="https://wodric.com/git-workflow-de-dev/" rel="prev">Git: Workflow de dev</a></h2>
+							</div>
+			<div class="col-md-6 post-navi-next">
+								<span>Article suivant</span>
+				<h2 class="h5"><a href="https://wodric.com/commandes-git-2/" rel="next">Les commandes Git – branches, rebase… (2/3)</a></h2>
+							</div>
+		</div>
+		
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title h3">
+			4 commentaires		</h2>
+
+		
+		<ol class="comment-list">
+			    <li class="comment even thread-even depth-1" id="li-comment-32">
+        <article id="comment-32" class="comment clearfix">
+            <img alt="" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/47676341950ff632d0dc353662f62d8c.png" class="avatar avatar-60 photo jetpack-lazy-image grav-hashed grav-hijack jetpack-lazy-image--handled" srcset="https://secure.gravatar.com/avatar/47676341950ff632d0dc353662f62d8c?s=120&amp;d=wavatar&amp;r=g 2x" id="grav-47676341950ff632d0dc353662f62d8c-0" data-lazy-loaded="1" width="60" height="60"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/47676341950ff632d0dc353662f62d8c?s=60&#038;d=wavatar&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/47676341950ff632d0dc353662f62d8c?s=120&#038;d=wavatar&#038;r=g
+ 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript>            <div class="comment-wrapper">
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Florian Guillot</b> </cite><a class="comment-time" href="https://wodric.com/commandes-git-1/#comment-32"><time datetime="2016-06-21T09:28:58+01:00">21 juin 2016</time></a><a rel="nofollow" class="comment-reply-link" href="#comment-32" data-commentid="32" data-postid="311" data-belowelement="comment-32" data-respondelement="respond" aria-label="Répondre à Florian Guillot">Répondre</a>                </header><!-- .comment-meta -->
+
+                
+                <div class="comment-content">
+                    <p>Super ! J’espère voir la suite très vite. Je n’ai jamais vu d’article sur GIT aussi compréhensible.<br>
+Dans ma boite, nous avons trois parties sur git, là où tu en à deux : 
+master, develop, et toutes nos branches de travail. Notre develop à nous
+ serait ta master à toi, et notre master devient alors encore plus 
+«&nbsp;clean&nbsp;».<br>
+Comme tu dis vouloir augmenter tes compétences éditoriales, attention à la phrase qui propose de laisser un commentaire <img draggable="false" class="emoji" alt="😉" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/1f609.svg"><br>
+Bonne continuation.</p>
+                                    </div><!-- .comment-content -->
+            </div><!--/comment-wrapper-->
+        </article><!-- #comment-## -->
+    <ul class="children">
+    <li class="comment byuser comment-author-wodric bypostauthor odd alt depth-2" id="li-comment-33">
+        <article id="comment-33" class="comment clearfix">
+            <img alt="" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/21f2b7f4d244dc2f786fe4254d935e89.jpeg" class="avatar avatar-60 photo jetpack-lazy-image grav-hashed grav-hijack jetpack-lazy-image--handled" srcset="https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=120&amp;d=wavatar&amp;r=g 2x" id="grav-21f2b7f4d244dc2f786fe4254d935e89-0" data-lazy-loaded="1" width="60" height="60"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=60&#038;d=wavatar&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=120&#038;d=wavatar&#038;r=g
+ 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript>            <div class="comment-wrapper">
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Wodric</b> <span>Auteur de l’article</span></cite><a class="comment-time" href="https://wodric.com/commandes-git-1/#comment-33"><time datetime="2016-06-21T12:59:51+01:00">21 juin 2016</time></a><a rel="nofollow" class="comment-reply-link" href="#comment-33" data-commentid="33" data-postid="311" data-belowelement="comment-33" data-respondelement="respond" aria-label="Répondre à Wodric">Répondre</a>                </header><!-- .comment-meta -->
+
+                
+                <div class="comment-content">
+                    <p>Merci pour ton retour, ça fait plaisir <img draggable="false" class="emoji" alt="🙂" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/1f642.svg"> . J’espère que les prochains articles seront aussi limpide pour toi. Le workflow de ton entreprise ressemble au git flow (<a href="http://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html" rel="nofollow">http://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html</a>) que je cite dans d’autres articles sur git.<br>
+J’avoue que j’ai oublié la petite phrase pour les commentaires. Je rajoute ça !</p>
+                                    </div><!-- .comment-content -->
+            </div><!--/comment-wrapper-->
+        </article><!-- #comment-## -->
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-134">
+        <article id="comment-134" class="comment clearfix">
+            <img alt="" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/49c0beba4e96940d07e6bea5d3706c4a.jpeg" class="avatar avatar-60 photo jetpack-lazy-image grav-hashed grav-hijack jetpack-lazy-image--handled" srcset="https://secure.gravatar.com/avatar/49c0beba4e96940d07e6bea5d3706c4a?s=120&amp;d=wavatar&amp;r=g 2x" id="grav-49c0beba4e96940d07e6bea5d3706c4a-0" data-lazy-loaded="1" width="60" height="60"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/49c0beba4e96940d07e6bea5d3706c4a?s=60&#038;d=wavatar&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/49c0beba4e96940d07e6bea5d3706c4a?s=120&#038;d=wavatar&#038;r=g
+ 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript>            <div class="comment-wrapper">
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://gravatar.com/decaville7" rel="external nofollow" class="url">decaville7</a></b> </cite><a class="comment-time" href="https://wodric.com/commandes-git-1/#comment-134"><time datetime="2018-03-19T22:31:50+01:00">19 mars 2018</time></a><a rel="nofollow" class="comment-reply-link" href="#comment-134" data-commentid="134" data-postid="311" data-belowelement="comment-134" data-respondelement="respond" aria-label="Répondre à decaville7">Répondre</a>                </header><!-- .comment-meta -->
+
+                
+                <div class="comment-content">
+                    <p>Merci beaucoup pour ce article tres bien detaillé, je te tire mon chapeau. J’attends la suite avec impatience.</p>
+                                    </div><!-- .comment-content -->
+            </div><!--/comment-wrapper-->
+        </article><!-- #comment-## -->
+    <ul class="children">
+    <li class="comment byuser comment-author-wodric bypostauthor odd alt depth-2" id="li-comment-135">
+        <article id="comment-135" class="comment clearfix">
+            <img alt="" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/21f2b7f4d244dc2f786fe4254d935e89.jpeg" class="avatar avatar-60 photo jetpack-lazy-image grav-hashed grav-hijack" data-lazy-srcset="https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=120&amp;d=wavatar&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=60&amp;is-pending-load=1#038;d=wavatar&amp;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="grav-21f2b7f4d244dc2f786fe4254d935e89-1" width="60" height="60"><noscript><img
+ alt='' 
+src='https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=60&#038;d=wavatar&#038;r=g'
+ 
+srcset='https://secure.gravatar.com/avatar/21f2b7f4d244dc2f786fe4254d935e89?s=120&#038;d=wavatar&#038;r=g
+ 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript>            <div class="comment-wrapper">
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Wodric</b> <span>Auteur de l’article</span></cite><a class="comment-time" href="https://wodric.com/commandes-git-1/#comment-135"><time datetime="2018-03-20T22:04:19+01:00">20 mars 2018</time></a><a rel="nofollow" class="comment-reply-link" href="#comment-135" data-commentid="135" data-postid="311" data-belowelement="comment-135" data-respondelement="respond" aria-label="Répondre à Wodric">Répondre</a>                </header><!-- .comment-meta -->
+
+                
+                <div class="comment-content">
+                    <p>Hello,</p>
+<p>De rien, tu trouves les articles suivants en début d’article si tu souhaites en découvrir un peu plus <img draggable="false" class="emoji" alt="🙂" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/1f642.svg"></p>
+                                    </div><!-- .comment-content -->
+            </div><!--/comment-wrapper-->
+        </article><!-- #comment-## -->
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Vous aussi participez, laissez un commentaire					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://wodric.com/commandes-git-1/#respond" style="display:none;">Annuler la réponse.</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Formulaire de commentaire" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/a.html" style="width: 100%; height: 55px; border: 0px none;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups" scrolling="no"></iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							<input id="ak_js" name="ak_js" value="1570546124688" type="hidden"></form>
+		</div>
+
+		
+		<input name="comment_parent" id="comment_parent" value="" type="hidden">
+
+		
+</div><!-- #comments -->
+
+				
+				</main><!-- #main -->
+			</div><!-- #primary -->
+
+
+		<div id="secondary" class="widget-area sidebar" role="complementary">
+			<aside id="synved_social_follow-8" class="widget widget_synved_social_follow"><h2 class="widget-title"><span>Suivez moi</span></h2><div><a class="synved-social-button synved-social-button-follow synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Follow us on Twitter" href="https://twitter.com/_Wodric_" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:8px;margin-right:8px;"><img alt="twitter" title="Follow us on Twitter" class="synved-share-image synved-social-image synved-social-image-follow" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/twitter.png" width="48" height="48"></a><a class="synved-social-button synved-social-button-follow synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Find us on Linkedin" href="https://fr.linkedin.com/in/alexandrelefevre1" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:8px;margin-right:8px;"><img alt="linkedin" title="Find us on Linkedin" class="synved-share-image synved-social-image synved-social-image-follow" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/linkedin.png" width="48" height="48"></a><a class="synved-social-button synved-social-button-follow synved-social-size-48 synved-social-resolution-single synved-social-provider-rss nolightbox" data-provider="rss" target="_blank" rel="nofollow" title="Flux articles" href="http://wodric.com/index.php/feed/" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:8px;"><img alt="rss" title="Flux articles" class="synved-share-image synved-social-image synved-social-image-follow" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/rss_002.png" width="48" height="48"></a></div></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title"><span>Articles récents</span></h2>		<ul>
+											<li>
+					<a href="https://wodric.com/gpdr-impact-sur-vos-developpements/">GDPR :  impact sur l’ensemble de vos développements</a>
+											<span class="post-date">16 janvier 2018</span>
+									</li>
+											<li>
+					<a href="https://wodric.com/backup-base-avec-git/">Backup une base de données avec Git</a>
+											<span class="post-date">16 janvier 2017</span>
+									</li>
+											<li>
+					<a href="https://wodric.com/commande-grep/">Commande grep : Rechercher une aiguille dans un système</a>
+											<span class="post-date">2 janvier 2017</span>
+									</li>
+											<li>
+					<a href="https://wodric.com/classe-immutable/">Clean code #2 : Rendre son code plus robuste grâce aux immutables!</a>
+											<span class="post-date">6 décembre 2016</span>
+									</li>
+					</ul>
+		</aside><aside id="rss-9" class="widget widget_rss"><h2 class="widget-title"><span><a class="rsswidget" href="http://amaury-laurent.fr/index.php/feed/"><img class="rss-widget-icon" style="border:0" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/rss.png" alt="RSS" width="14" height="14"></a> <a class="rsswidget" href="http://amaury-laurent.fr/">Blog Amaury Laurent</a></span></h2><ul><li><a class="rsswidget" href="http://amaury-laurent.fr/mesure-lidar-rotatif-embarque-sur-lattepanda-et-pilote-par-labview-linx/">Mesure Lidar rotatif embarqué sur LattePanda et piloté par LabVIEW (LINX)</a></li><li><a class="rsswidget" href="http://amaury-laurent.fr/code-couleur-resistance/">Code couleur résistance</a></li><li><a class="rsswidget" href="http://amaury-laurent.fr/exporter-un-circuit-imprime-depuis-eagle-vers-galaad-percival/">Exporter un Circuit Imprimé depuis EAGLE vers GALAAD/PERCIVAL</a></li><li><a class="rsswidget" href="http://amaury-laurent.fr/creation-de-design-blocks-avec-eagle-8/">Création de Design Blocks avec Eagle 8</a></li></ul></aside><aside id="categories-2" class="widget widget_categories"><h2 class="widget-title"><span>Catégories</span></h2>		<ul>
+				<li class="cat-item cat-item-4"><a href="https://wodric.com/category/autres/">Autres</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="https://wodric.com/category/life-hacking/bon-plan/">bon plan</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://wodric.com/category/article-dev/" title="Différents articles sur le développement, de l'astuce à l'article plus complet.">Développement</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="https://wodric.com/category/article-dev/git/">Git</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://wodric.com/category/life-hacking/">Life hacking</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://wodric.com/category/article-dev/news/">News</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="https://wodric.com/category/article-dev/qualite/">Qualité</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="https://wodric.com/category/article-dev/sql/">SQL</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="https://wodric.com/category/tips/">Tips</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://wodric.com/category/article-dev/tutoriels/">Tutoriels</a>
+</li>
+		</ul>
+			</aside>		</div><!-- #secondary -->
+		</div> <!--#content-inside-->
+	</div><!-- #content -->
+	<div class="footer-shadow container">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/footer-shadow.png" alt="">
+			</div>
+		</div>
+	</div>
+	<footer id="colophon" class="site-footer">
+		<div class="container">
+
+						<div class="footer-navigation">
+				<ul id="menu-v1-2" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4"><a href="http://wodric.com/">Accueil</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-812"><a href="https://wodric.com/cv/">CV</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15"><a href="https://wodric.com/projets/">Projets</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="https://github.com/Wodric">Github</a></li>
+</ul>			</div>
+			
+			<div class="site-info">
+				<p>
+					Copyright 2019 © Wodric Tous droits réservés.				</p>
+				Thème Codilight par <a href="http://www.famethemes.com/themes">FameThemes</a>			</div><!-- .site-info -->
+
+		</div>
+	</footer><!-- #colophon -->
+</div><div class="rw-js-container"></div><div style="display:none">
+	<div class="grofile-hash-map-47676341950ff632d0dc353662f62d8c">
+	</div>
+	<div class="grofile-hash-map-21f2b7f4d244dc2f786fe4254d935e89">
+	</div>
+	<div class="grofile-hash-map-49c0beba4e96940d07e6bea5d3706c4a">
+	</div>
+	</div><script type="text/javascript">
+/* <![CDATA[ */
+var MegamenuWp = 
+{"ajax_url":"https:\/\/wodric.com\/wp-admin\/admin-ajax.php","loading_icon":"<div
+ class=\"mega-spinner\"><div class=\"uil-squares-css\" 
+style=\"transform:scale(0.4);\"><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><div><div><\/div><\/div><\/div><\/div>","theme_support":{"mobile_mod":720,"disable_auto_css":0,"disable_css":0,"parent_level":0,"content_right":0,"content_left":0,"margin_top":0,"animation":"","child_li":"","ul_css":"","li_css":""},"mega_parent_level":"0","mega_content_left":"0","mega_content_right":"0","animation":"shift-up"};
+/*
+ ]]> */
+</script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/megamenu-wp.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/photon.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/devicepx-jetpack.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/gprofiles.js"></script><script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/wpgroho.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/libs.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/theme.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/comment-reply.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/lazy-images.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/wp-embed.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/spin.js"></script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/jquery.js"></script><script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = 
+{"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"fr","ajaxurl":"https:\/\/wodric.com\/wp-admin\/admin-ajax.php","nonce":"a48859088b","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Commentaire","post_comment":"Laisser
+ un commentaire","write_comment":"\u00c9crire un 
+commentaire...","loading_comments":"Chargement des 
+commentaires\u2026","download_original":"Afficher dans sa taille 
+r\u00e9elle <span class=\"photo-size\">{0}<span 
+class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>.","no_comment_text":"Veuillez
+ ajouter du contenu \u00e0 votre commentaire.","no_comment_email":"Merci
+ de renseigner une adresse e-mail.","no_comment_author":"Merci de 
+renseigner votre nom.","comment_post_error":"Une erreur s'est produite 
+\u00e0 la publication de votre commentaire. Veuillez nous en excuser, et
+ r\u00e9essayer dans quelques instants.","comment_approved":"Votre 
+commentaire a \u00e9t\u00e9 approuv\u00e9.","comment_unapproved":"Votre 
+commentaire est en attente de validation.","camera":"Appareil 
+photo","aperture":"Ouverture","shutter_speed":"Vitesse 
+d'obturation","focal_length":"Focale","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/wodric.com\/wp-login.php?redirect_to=https%3A%2F%2Fwodric.com%2Fcommandes-git-1%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label
+ for=\"email\">E-mail (requis)<\/label> <input type=\"text\" 
+name=\"email\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-email-field\" 
+\/><\/fieldset><fieldset><label for=\"author\">Nom (requis)<\/label> 
+<input type=\"text\" name=\"author\" 
+class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-author-field\" 
+\/><\/fieldset><fieldset><label for=\"url\">Site web<\/label> <input 
+type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/jetpack-carousel.js"></script><script async="async" type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/form.js"></script><script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value
+ : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = 
+"https://jetpack.wordpress.com/jetpack-comment/?blogid=102937066&postid=311&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=wavatar&greeting=Vous+aussi+participez%2C+laissez+un+commentaire&greeting_reply=R%C3%A9pondre+%C3%A0+%25s&color_scheme=light&lang=fr_FR&jetpack_version=7.7.1&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=2321d137e869747eaa37d197656577b5782dfc22#parent=https%3A%2F%2Fwodric.com%2Fcommandes-git-1%2F"
+ + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = 
+"https://jetpack.wordpress.com/jetpack-comment/?blogid=102937066&postid=311&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=wavatar&greeting=Vous+aussi+participez%2C+laissez+un+commentaire&greeting_reply=R%C3%A9pondre+%C3%A0+%25s&color_scheme=light&lang=fr_FR&jetpack_version=7.7.1&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=2321d137e869747eaa37d197656577b5782dfc22#parent=https%3A%2F%2Fwodric.com%2Fcommandes-git-1%2F";
+
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, 
+postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, 
+respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin )
+ {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin )
+ {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script><script type="text/javascript" src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/e-201941.js" async="async" defer="defer"></script><script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.7.1',blog:'102937066',post:'311',tz:'1',srv:'wodric.com'} ]);
+	_stq.push([ 'clickTrackerInit', '102937066', '311' ]);
+</script></div><!-- #page -->
+
+					<!-- This site's ratings are powered by RatingWidget plugin v3.0.6 (Free version) - https://rating-widget.com/wordpress-plugin/ -->
+					
+					<!-- / RatingWidget plugin -->
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		
+
+		
+
+
+
+
+<span style="display: none;" class="rw-ui-tooltip"></span><div style="display: none;" class="rw-ui-report"></div><div><i class="rw-action-loader" style="position: fixed; top: -1000px;"></i></div><div><i class="rw-action-loader" style="position: fixed; top: -1000px;"></i></div><img src="Les%20commandes%20Git%20:%20De%20bonnes%20bases%20%281_3%29_files/g.gif" alt=":)" id="wpstats" width="6" height="5"></body></html>
