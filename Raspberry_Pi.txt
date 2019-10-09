@@ -11,4 +11,70 @@ Le Raspberry Pi est utilisé par des « makers » du monde entier car son prix l
 
 Le Raspberry Pi a des pins GPIO qui permettent la connexion de cartes d'extension HAT* ou d'autres composants électroniques pour réaliser des montages. (HAT équivaut au shield d'Arduino). 😀
 
+On peut donc en faire :
 
+    Un module pour ouvrir sa porte de garage à la voix (grâce à SIRI)
+    Une table basse de jeux d’arcade pour se la raconter quand on invite du monde à la maison.
+    Une Beetbox pour faire de la musique avec des betteraves.
+    Un robot Roomba.
+    Un netbook.
+    Une pirateBox /-)
+    Un serveur domotique GPIO.
+    Un serveur SqueezeBox (Logitech Media Server)
+    Une liseuse vocale de tweets.
+    Une alarme pour votre domicile.
+    Un lecteur d’audiobooks.
+    Un serveur Owncloud.
+    Un char d’assault.
+    Un connecteur OBD-II (pour la voiture)
+    Un serveur BitTorrent.
+    Un serveur FTP qui fonctionne à l’énergie solaire.
+    Une borne d’arcade MAME.
+    Un transmetteur FM.
+    Un NAS.
+    Un serveur Git
+    Un serveur de mail.
+    Un outil de surveillance du trafic routier.
+    Un cadre photos numérique.
+    Une Time Machine.
+    Un module pour piloter ses guirlandes de Noël.
+    Un serveur web. (ou un « blog« … enfin, un serveur LAMP quoi)
+    Des lunettes Raspberry Pi.
+    Un distributeur de tickets.
+    Une machine à conseils.
+    Un ordinateur pour apprendre aux enfants à développer des jeux vidéos [PDF].
+    Un ordinateur de bord pour la voiture.
+    Un boite à outils pour faire du pentest (avec Pwnie Express que j’adore)
+    Un super ordinateur.
+    Du LightPainting (Allez voir, c’est magnifique)
+    Une station météo.
+    Un indicateur visuel pour savoir si vous êtes toujours connecté au net.
+    Un portefeuille pour transporter vos Bitcoins.
+    Un serveur Asterisk (pour la VoIP).
+    Un serveur VPN.
+    Un module DSLR qui se connecte à un appareil photo Reflex et qui permet de transférer les images via le Wifi ou de contrôler le déclenchement à distance.
+    Un module de prise de photo en haute atmosphère avec un ballon sonde.
+    Un lecteur RFID.
+    Un tracker GPS.
+    Un serveur VPN à domicile.
+    Un serveur de webcam.
+    Un quadcopter pour survoler le jardin de la voisine.
+    Une machine à café pilotable et programmable à distance.
+    Un relai TOR.
+    Du détournement de Kindle pour l’utiliser comme un écran.
+    Un baladeur capable de lire du MOD, S3M, IT ou encore XM.
+    Une Super Nintendo.
+    Des enceintes AirPlay.
+    Un avertisseur d’emails reçus.
+    Un Raspberry Pi… overclocké.
+    Un flipper.
+    Une radio pour écouter la BBC avec le décalage horaire.
+    Un spectacle pyrotechnique.
+    Un robot pilotable à distance.
+    Un serveur de synchro pour Firefox.
+    Piloter des ampoules Philips Hue en synchro avec Kodi
+    Faire du suivi de température.
+
+Et si vous cherchez un moyen rapide et pas cher de faire un boitier de protection pour vos Raspberry Pi, pensez aux LEGO.
+
+Bon, je pourrai continuer comme ça toute la journée, mais va bien falloir que je m’arrête. Je pense que vous avez déjà de quoi faire pour vous lancer dans de nouveaux projets avec votre Raspberry Pi !
