@@ -1,0 +1,14 @@
+
+Le Raspberry Pi est un nano-ordinateur monocarte à processeur ARM conçu par des professeurs du département informatique de l'université de Cambridge dans le cadre de la fondation Raspberry Pi2.
+
+Cet ordinateur, de la taille d'une carte de crédit, est destiné à encourager l'apprentissage de la programmation informatique2 ; il permet l'exécution de plusieurs variantes du système d'exploitation libre GNU/Linux, notamment Debian, et des logiciels compatibles. Mais il fonctionne également avec l'OS Microsoft Windows : Windows 10 IoT Core3 et celui de Google, Android Pi4.
+
+Il est fourni nu, c'est-à-dire la carte mère seule, sans boîtier, alimentation, clavier, souris ni écran, dans l'objectif de diminuer les coûts et de permettre l'utilisation de matériel de récupération. Néanmoins des « kits » regroupant le « tout en un » sont disponibles sur le web à partir de quelques dizaines d'euros seulement.
+
+Son prix de vente était estimé à 25 $ américains, soit 19,09 €, début mai 2011. Les premiers exemplaires ont été mis en vente le 29 février 2012 pour environ 25 €5. En septembre 2016, plus de dix millions de Raspberry Pi ont été vendus. De multiples versions ont été développées, les dernières sont vendues un peu plus de 25 € pour le B+, à un peu plus de 30 € pour le Pi 2 (2015), un peu plus de 35 € pour le Pi 3 (2016), 5 € pour le Raspberry Pi Zero (2016), 10 € pour le Raspberry Pi Zero W (2017) et 15 € pour le Raspberry Pi Zero WH (2018).
+
+Le Raspberry Pi est utilisé par des « makers » du monde entier car son prix le rend très attirant. Le Raspberry Pi est bien un nano-ordinateur et non une carte électronique comme le propose Arduino.
+
+Le Raspberry Pi a des pins GPIO qui permettent la connexion de cartes d'extension HAT* ou d'autres composants électroniques pour réaliser des montages. (HAT équivaut au shield d'Arduino). 😀
+
+
